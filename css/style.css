@@ -1,48 +1,200 @@
-/* css/style.css: inicio do arquivo */
+/* ===== Variáveis ===== */
 :root {
-  /* ...as cores de antes... */
-  --fonte-titulo: 'Space Grotesk', sans-serif;  /* sans-serif é a fonte reserva */
+  --bg: #0E0E10;
+  --card: #17171A;
+  --borda: #2A2A2E;
+  --borda-forte: #3A3A40;
+  --texto: #F2F2F2;
+  --texto-2: #BDBDC2;
+  --texto-3: #8A8A90;
+  --destaque: #FF5A52;
+  --botao: #D62828;
+  --fonte-titulo: 'Space Grotesk', sans-serif;
   --fonte-texto: 'DM Sans', sans-serif;
-  --margem: clamp(20px, 6vw, 96px);             /* margem lateral adaptável */
-  --bg: #0E0E10;            /* fundo da página */
-  --card: #17171A;          /* fundo dos cartões */
-  --borda: #2A2A2E;         /* bordas suaves */
-  --borda-forte: #3A3A40;   /* bordas de botões e etiquetas */
-  --texto: #F2F2F2;         /* texto principal */
-  --texto-2: #BDBDC2;       /* texto secundário */
-  --texto-3: #8A8A90;       /* texto discreto */
-  --destaque: #FF5A52;      /* vermelho de destaque */
-  --botao: #D62828;         /* vermelho de botão e da faixa de contato */
+  --margem: clamp(20px, 6vw, 96px);
 }
 
-/* Faz width e padding somarem dentro do tamanho do elemento (evita surpresas) */
+/* ===== Base ===== */
 *, *::before, *::after { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }   /* rolagem suave ao clicar nas âncoras */
+html { scroll-behavior: smooth; }
 
 body {
-  margin: 0;                         /* remove a margem padrão do navegador */
+  margin: 0;
   background: var(--bg);
   color: var(--texto);
   font-family: var(--fonte-texto);
   font-size: 17px;
-  line-height: 1.6;                  /* espaço entre linhas */
+  line-height: 1.6;
 }
 
 h1, h2, h3 { font-family: var(--fonte-titulo); margin: 0; }
 
-a { color: inherit; text-decoration: none; }   /* link herda a cor do texto */
+a { color: inherit; text-decoration: none; }
 a:hover { color: var(--destaque); }
-
-/* Contorno visível para quem navega pelo teclado (Tab) */
 a:focus-visible, button:focus-visible {
   outline: 2px solid var(--destaque);
   outline-offset: 3px;
 }
 
-/* Seção padrão: espaçamento, linha de separação e título */
 .secao {
   padding: clamp(48px, 7vw, 80px) var(--margem);
   border-top: 1px solid var(--borda);
 }
 .secao h2 { font-size: 32px; margin-bottom: 32px; }
+
+/* ===== Menu ===== */
+.topo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 24px var(--margem);
+  border-bottom: 1px solid var(--borda);
+}
+.logo { font-family: var(--fonte-titulo); font-weight: 700; font-size: 20px; }
+.logo span { color: var(--destaque); }
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+}
+.menu a.ativo { color: var(--destaque); }
+
+/* ===== Hero e botões ===== */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 960px;
+  padding: clamp(56px, 10vw, 128px) var(--margem) clamp(56px, 8vw, 96px);
+}
+.hero__saudacao {
+  margin: 0;
+  color: var(--destaque);
+  font-family: var(--fonte-titulo);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.hero__nome { font-size: clamp(44px, 8vw, 96px); line-height: 1.02; }
+.hero__descricao {
+  margin: 0;
+  font-size: clamp(18px, 2.4vw, 24px);
+  color: var(--texto-2);
+}
+
+.botoes { display: flex; flex-wrap: wrap; gap: 12px; }
+.botao {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 500;
+}
+.botao--cheio { background: var(--botao); color: #fff; }
+.botao--cheio:hover { background: #B81F1F; color: #fff; }
+.botao--contorno { border: 1px solid var(--borda-forte); }
+.botao--contorno:hover { border-color: var(--destaque); }
+
+/* ===== Sobre ===== */
+.sobre { display: flex; flex-wrap: wrap; gap: 32px 64px; }
+.sobre h2 { min-width: 200px; margin-bottom: 0; }
+.sobre p {
+  flex: 1;
+  min-width: 260px;
+  max-width: 640px;
+  margin: 0;
+  color: var(--texto-2);
+}
+
+/* ===== Projetos ===== */
+.grade-projetos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+.cartao {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 28px;
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: 16px;
+}
+.cartao h3 { font-size: 24px; }
+.cartao p { margin: 0; color: var(--texto-2); }
+.cartao__numero { color: var(--destaque); font-family: var(--fonte-titulo); font-weight: 500; }
+.cartao__link { margin-top: auto; color: var(--destaque); font-weight: 500; }
+.cartao__link:hover { text-decoration: underline; }
+.cartao--vazio {
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+  background: transparent;
+  border-style: dashed;
+  border-color: var(--borda-forte);
+  color: var(--texto-3);
+}
+
+/* ===== Etiquetas (projetos e tecnologias) ===== */
+.etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.etiquetas li {
+  padding: 4px 12px;
+  border: 1px solid var(--borda-forte);
+  border-radius: 999px;
+  font-size: 14px;
+}
+.etiquetas--grandes { gap: 12px; }
+.etiquetas--grandes li {
+  padding: 8px 20px;
+  background: var(--card);
+  border-color: var(--borda);
+  font-size: 17px;
+}
+
+/* ===== Contato ===== */
+.contato {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: clamp(56px, 8vw, 96px) var(--margem);
+  background: var(--botao);
+  color: #fff;
+}
+.contato h2 { font-size: clamp(32px, 5vw, 56px); }
+.contato p { margin: 0; max-width: 560px; }
+.botao--escuro { background: var(--bg); color: #fff; }
+.botao--linkedin { background: #0A66C2; border: 1px solid #0A66C2; color: #fff; }
+.contato a.botao--linkedin:hover { background: #004182; border-color: #004182; color: #fff; opacity: 1; }
+.contato a:hover { color: #fff; opacity: 0.85; }
+
+/* ===== Rodapé ===== */
+.rodape {
+  padding: 24px var(--margem);
+  color: var(--texto-3);
+  font-size: 14px;
+}
+
+/* ===== Botão do WhatsApp (na faixa de contato) ===== */
+.botao--whatsapp { background: #25D366; color: #0E0E10; }
+.contato a.botao--whatsapp:hover { background: #1EBE5A; color: #0E0E10; opacity: 1; }
+
+/* ===== Celular (sempre por último) ===== */
+@media (max-width: 600px) {
+  .topo { justify-content: center; text-align: center; }
+  .menu { justify-content: center; }
+  .botoes .botao { width: 100%; text-align: center; }
+  .secao h2 { font-size: 28px; }
+}

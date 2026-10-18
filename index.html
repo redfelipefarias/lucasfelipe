@@ -1,31 +1,99 @@
-<html>
-  <head>
-    <title>My Portfolio</title>
-    <link rel='preconnect'
-    href='https://fonts.googleapis.com'>
-    <link rel='preconnect'
-    href='https://fonts.gstatic.com' crossorigin>
-    <link
-    href='https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap'
-    rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-  </head>
-  <body>
-    <header>
-      <h1>My Portfolio</h1>
-    </header>
-    <main>
-      <section id="about">
-        <h2>About Me</h2>
-        <p>Welcome to my portfolio!</p>
-      </section>
-      <section id="projects">
-        <h2>Projects</h2>
-        <p>Here are some of my projects.</p>
-      </section>
-    </main>
-    <footer>
-      <p>&copy; 2026 My Portfolio. All rights reserved.</p>
-    </footer>
-  </body>
+<!DOCTYPE html>
+<html lang='pt-BR'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Lucas Felipe de Farias | Desenvolvedor em formação</title>
+  <meta name='description' content='Estudante de Ciência da Computação em busca de estágio em desenvolvimento. Veja meus projetos.'>
+
+  <meta property='og:type' content='website'>
+  <meta property='og:title' content='Lucas Felipe de Farias | Desenvolvedor em formação'>
+  <meta property='og:description' content='Veja meus projetos e entre em contato.'>
+
+  <link rel='icon' href='img/favicon.svg' type='image/svg+xml'>
+
+  <link rel='preconnect' href='https://fonts.googleapis.com'>
+  <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+  <link href='https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap' rel='stylesheet'>
+
+  <link rel='stylesheet' href='css/style.css'>
+</head>
+<body>
+
+  <header class='topo'>
+    <a class='logo' href='#inicio'>Lucas Felipe de Farias<span>.</span></a>
+    <nav aria-label='Principal'>
+      <ul class='menu'>
+        <li><a href='#sobre'>Sobre</a></li>
+        <li><a href='#projetos'>Projetos</a></li>
+        <li><a href='#tecnologias'>Tecnologias</a></li>
+        <li><a href='#contato'>Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class='hero' id='inicio'>
+      <p class='hero__saudacao'>Olá, eu sou</p>
+      <h1 class='hero__nome'>Lucas Felipe de Farias</h1>
+      <p class='hero__descricao'>Estudante de Ciência da Computação · Desenvolvedor em formação · Em busca de estágio</p>
+      <div class='botoes'>
+        <a class='botao botao--cheio' href='#projetos'>Ver projetos</a>
+        <a class='botao botao--contorno' href='https://github.com/redfelipefarias' target='_blank' rel='noopener noreferrer'>GitHub</a>
+        <a class='botao botao--contorno' href='https://www.linkedin.com/in/lucasfelipefarias' target='_blank' rel='noopener noreferrer'>LinkedIn</a>
+      </div>
+    </section>
+
+    <section class='secao sobre' id='sobre'>
+      <h2>Sobre mim</h2>
+      <p>Sou estudante de Ciência da Computação e desenvolvedor em formação, em busca de uma oportunidade de estágio em TI. Tenho conhecimentos em Java, JavaScript, HTML, CSS e PostgreSQL. Quero colocar meus conhecimentos em prática, aprender com profissionais experientes e desenvolver minhas habilidades na criação de soluções e na resolução de problemas.</p>
+    </section>
+
+    <section class='secao' id='projetos'>
+      <h2>Projetos</h2>
+      <div class='grade-projetos'>
+
+        <article class='cartao'>
+          <span class='cartao__numero'>01</span>
+          <h3>WMS</h3>
+          <p>Sistema de gestão de armazém, unindo programação e experiência em logística.</p>
+          <ul class='etiquetas'>
+            <li>Java</li>
+          </ul>
+          <a class='cartao__link' href='https://github.com/redfelipefarias/wms-red' target='_blank' rel='noopener noreferrer'>Ver no GitHub →</a>
+        </article>
+
+        <div class='cartao cartao--vazio'>Próximo projeto</div>
+
+      </div>
+    </section>
+
+    <section class='secao' id='tecnologias'>
+      <h2>Tecnologias</h2>
+      <ul class='etiquetas etiquetas--grandes'>
+        <li>Java</li>
+        <li>Git e GitHub</li>
+        <li>HTML e CSS</li>
+      </ul>
+    </section>
+
+    <section class='contato' id='contato'>
+      <h2>Vamos conversar?</h2>
+      <p>Estou em busca de estágio em desenvolvimento. Me chame por uma dessas opções.</p>
+      <div class='botoes'>
+        <a class='botao botao--escuro' href='mailto:redfelipefarias@gmail.com'>redfelipefarias@gmail.com</a>
+        <a class='botao botao--whatsapp' href='https://wa.me/5581986729312?text=Ol%C3%A1%2C%20vi%20seu%20portf%C3%B3lio.' target='_blank' rel='noopener noreferrer'>WhatsApp</a>
+        <a class='botao botao--linkedin' href='https://www.linkedin.com/in/lucasfelipefarias' target='_blank' rel='noopener noreferrer'>LinkedIn</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class='rodape'>
+    © <span id='ano'>2026</span> Lucas Felipe de Farias · Recife, PE
+  </footer>
+
+  <script src='js/script.js'></script>
+</body>
 </html>
